@@ -1,5 +1,5 @@
 name = "hls-player-with-cloudflare-workers"
-type = "javascriptx"
+type = "javascript"
 # account_id = "e50802a50a7ebff2bbbf562825068aaf"
 compatibility_date = "2024-09-05"
 # main = "./functions/[[path]].js"
