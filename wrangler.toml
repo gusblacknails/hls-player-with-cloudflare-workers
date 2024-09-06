@@ -1,5 +1,13 @@
 name = "hls-player-with-cloudflare-workers"
-type = "service-worker"
-account_id = "e50802a50a7ebff2bbbf562825068aaf"
+type = "javascriptx"
+# account_id = "e50802a50a7ebff2bbbf562825068aaf"
 compatibility_date = "2024-09-05"
-main = "./functions/[[path]].js"
+# main = "./functions/[[path]].js"
+
+# Directorio donde se encuentran los archivos estáticos
+# site = { bucket = "./public", include = ["*"] }
+
+
+
+# Directorio donde están los archivos estáticos de tu proyecto
+pages_build_output_dir = "./public"
