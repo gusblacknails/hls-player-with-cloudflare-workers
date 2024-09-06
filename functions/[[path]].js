@@ -1,7 +1,7 @@
 export async function onRequest(context) {
   const allowedIP = '85.50.8.64'; // Cambia esta IP por la que quieras permitir
   const clientIP = context.request.headers.get('CF-Connecting-IP'); // Obtenemos la IP del visitante
-
+  console.log(`IP del visitante: ${clientIP}`);
   if (clientIP !== allowedIP) {
     return new Response('Acceso denegado. Tu IP no tiene permiso para acceder a este sitio.', { status: 403 });
   }
