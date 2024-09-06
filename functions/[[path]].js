@@ -1,11 +1,14 @@
-export async function onRequest(context) {
-  const allowedIP = '85.50.8.64'; // Cambia esta IP por la que quieras permitir
-  const clientIP = context.request.headers.get('CF-Connecting-IP'); // Obtenemos la IP del visitante
-  console.log(`IP del visitante: ${clientIP}`);
-  if (clientIP !== allowedIP) {
-    return new Response('Acceso denegado. Tu IP no tiene permiso para acceder a este sitio.', { status: 403 });
-  }
+export default {
+  async fetch(request, env, ctx) {
+    const allowedIP = '85.50.8.64'; // Cambia esta IP por la que quieras permitir
+    const clientIP = request.headers.get('CF-Connecting-IP') || '127.0.0.1'; // Simulamos IP localmente si no está disponible
 
-  // Si la IP es permitida, continúa con la respuesta normal
-  return fetch(context.request);
-}
+    console.log(`IP del visitante: ${clientIP}`);
+
+    if (clientIP !== allowedIP) {
+      return new Response('Acceso denegado. Tu IP no tiene permiso para acceder a este sitio.', { status: 403 });
+    }
+
+    return new Response('Acceso permitido', { status: 200 });
+  }
+};
